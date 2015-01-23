@@ -37,25 +37,20 @@
 					<g:form action="list" role="form">
 							<div class="form-group">
 								<label for="nom"><g:message code="evenement.nom.label" default="Nom Evt." /></label>
-								<g:textField class="form-control" name="nom" value="${flash?.nom.encodeAsHTML()}" />
+								<g:textField class="form-control" name="nom" />
 							</div>
 							
 							<div class="form-group">
 								<label for="lieu"><g:message code="evenement.lieu.label" default="Lieu" /></label>
-								<g:textField class="form-control" name="lieu" value="${flash?.lieu.encodeAsHTML()}" />
+								<g:textField class="form-control" name="lieu" />
 							</div>
-							
-							<label class="checkbox-inline">
-									<g:checkBox name="test" value="${flash?.equipe}" /> 
-									<g:message code="epreuve.equipe.label" default="Equipe" />
-							</label>
 							
 							<div class="form-group">
 								<label><g:message code="epreuve.date.label" default="Date" /></label>
 								<div class="input-daterange input-group datepicker" id="datepicker">
-									<g:textField class="form-control" name="datemin" value="${flash?.datemin.encodeAsHTML()}" />
+									<g:textField class="form-control" name="datemin" />
 									<span class="input-group-addon">à</span>
-									<g:textField class="form-control" name="datemax" value="${flash?.datemax.encodeAsHTML()}" />
+									<g:textField class="form-control" name="datemax" />
 								</div>
 							</div>
 							
@@ -63,35 +58,35 @@
 								<label>Options</label>
 								<div class="checkbox">
 									<label>
-										<g:checkBox name="courseFeminine" value="${flash?.courseFeminine}" /> 
+										<g:checkBox name="courseFeminine" /> 
 										<g:message code="epreuve.courseFeminine.label" default="Course Féminine" />
 									</label>
 								</div>
 								
 								<div class="checkbox">
 									<label>
-										<g:checkBox name="courseNocturne" value="${flash?.courseNocturne}" /> 
+										<g:checkBox name="courseNocturne" /> 
 										<g:message code="epreuve.courseFeminine.label" default="Course Nocturne" />
 									</label>
 								</div>
 								
 								<div class="checkbox">
 									<label>
-										<g:checkBox name="courseRecurrente" value="${flash?.courseRecurrente}" /> 
+										<g:checkBox name="courseRecurrente" /> 
 										<g:message code="epreuve.courseFeminine.label" default="Course Récurrente" />
 									</label>
 								</div>
 
 								<label class="checkbox-inline">
-										<g:checkBox name="solo" value="${flash?.solo}" /> 
+										<g:checkBox name="solo" /> 
 										<g:message code="epreuve.solo.label" default="Solo" />
 								</label>
 								<label class="checkbox-inline">
-										<g:checkBox name="relais" value="${flash?.relais}" /> 
+										<g:checkBox name="relais" /> 
 										<g:message code="epreuve.relais.label" default="Relais" />
 								</label>
 								<label class="checkbox-inline">
-										<g:checkBox name="equipe" value="${flash?.equipe}" /> 
+										<g:checkBox name="equipe" /> 
 										<g:message code="epreuve.equipe.label" default="Equipe" />
 								</label>
 							</div>

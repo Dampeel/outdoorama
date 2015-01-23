@@ -14,10 +14,10 @@ class CalendrierController {
 		
 		println params
 		
-		flash.nom = params.nom
+		/*flash.nom = params.nom
 		flash.lieu = params.lieu
 		flash.datemin = params.datemin
-		flash.datemax = params.datemax
+		flash.datemax = params.datemax*/
 			
         if (!params.sort) params.sort = "date"
         if (!params.order) params.order = "desc"
@@ -38,20 +38,44 @@ class CalendrierController {
 				property("ep.denivele", "denivele")
 				property("ep.tarifMin", "tarifMin")
 				property("ep.tarifMax", "tarifMax")
+				property("ep.solo", "solo")
+				property("ep.relais", "relais")
+				property("ep.equipe", "equipe")
+				property("ep.courseFeminine", "courseFeminine")
+				property("ep.courseRecurrente", "courseRecurrente")
+				property("ep.courseNocturne", "courseNocturne")
 			}
 			
 			and {
-				if(flash.nom) {
-					ilike("nom", '%' + flash.nom + '%')
+				if(params.nom) {
+					ilike("nom", '%' + params.nom + '%')
 				}
-				if(flash.lieu) {
-					ilike("lieu", '%' + flash.lieu + '%')
+				if(params.lieu) {
+					ilike("lieu", '%' + params.lieu + '%')
 				}
-				if(flash.datemin) {
-					gt("ep.date", Date.parse("dd/MM/yyyy", flash.datemin))
+				if(params.datemin) {
+					gte("ep.date", Date.parse("dd/MM/yyyy", params.datemin))
 				}
-				if(flash.datemax) {
-					lt("ep.date", Date.parse("dd/MM/yyyy", flash.datemax))
+				if(params.datemax) {
+					lte("ep.date", Date.parse("dd/MM/yyyy", params.datemax))
+				}
+				if(params.courseFeminine) {
+					eq("ep.courseFeminine", true)
+				}
+				if(params.courseRecurrente) {
+					eq("ep.courseRecurrente", true)
+				}
+				if(params.courseNocturne) {
+					eq("ep.courseNocturne", true)
+				}
+				if(params.solo) {
+					eq("ep.solo", true)
+				}
+				if(params.relais) {
+					eq("ep.relais", true)
+				}
+				if(params.equipe) {
+					eq("ep.equipe", true)
 				}
 			}
 			
