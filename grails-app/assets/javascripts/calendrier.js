@@ -3,11 +3,36 @@
  */
 
 $(document).ready(function() {
-
-	$(".input-daterange").datepicker({
+	
+	$('#filtres').on('change', 'input[type=checkbox]', function(e) {
+		var url = $('form').attr('action');
+		var data = $('form').serialize();
+		
+		$.ajax({
+			type: 'POST',
+			url: url,
+			data: data,
+			success: function(data) {
+				$('#tableau').html(data);
+			}
+		});
 	});
 	
 	$('#filtres').on('input', '.form-control', function(e) {
+		var url = $('form').attr('action');
+		var data = $('form').serialize();
+		
+		$.ajax({
+			type: 'POST',
+			url: url,
+			data: data,
+			success: function(data) {
+				$('#tableau').html(data);
+			}
+		});
+	});
+	
+	$('#filtres').on('changeDate', '.form-control', function(e) {
 		var url = $('form').attr('action');
 		var data = $('form').serialize();
 		

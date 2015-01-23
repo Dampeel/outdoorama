@@ -10,11 +10,11 @@
 		
 			<g:sortableColumn class="col-sm-1" property="discipline" title="${message(code: 'epreuve.discipline.label', default: 'Discipline')}" />
 		
-			<g:sortableColumn class="col-sm-1" property="distance" title="${message(code: 'epreuve.distance.label', default: 'Dist.')}" />
+			<g:sortableColumn class="col-sm-1" property="famille" title="${message(code: 'epreuve.famille.label', default: 'Fam.')}" />
 		
 			<g:sortableColumn class="col-sm-1" property="denivele" title="${message(code: 'epreuve.denivele.label', default: 'Denivele')}" />
 		
-			<g:sortableColumn class="col-sm-1" property="tarifMin" title="${message(code: 'epreuve.tarifMinMax.label', default: 'Tarif Min/Max')}" />
+			<g:sortableColumn class="col-sm-1" property="tarifMin" title="${message(code: 'epreuve.tarifMinMax.label', default: 'Tarif')}" />
 		
 			<g:sortableColumn class="col-sm-2" property="departement" title="${message(code: 'epreuve.departement.label', default: 'Departement')}" />
 		
@@ -33,7 +33,7 @@
 			
 			<td>${calendrierInstance.discipline?.nom}</td>
 			
-			<td>${calendrierInstance.distance?.nom}</td>
+			<td>${calendrierInstance.famille?.nom}</td>
 		
 			<td><g:if test="${calendrierInstance.denivele}">${calendrierInstance.denivele} m</g:if></td>
 			

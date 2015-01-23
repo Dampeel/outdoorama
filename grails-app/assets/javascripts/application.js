@@ -8,6 +8,7 @@
 //= require jquery
 //= require bootstrap
 //= require bootstrap-datepicker
+//= require calendrier
 //= require_tree .
 //= require_self
 
@@ -20,3 +21,15 @@ if (typeof jQuery !== 'undefined') {
 		});
 	})(jQuery);
 }
+
+/**
+ * Outils
+ */
+
+$(document).ready(function() {
+	$(".datepicker").datepicker({
+	    format: "dd/mm/yyyy",
+	    autoclose: true,
+	    clearBtn: true
+	});
+});

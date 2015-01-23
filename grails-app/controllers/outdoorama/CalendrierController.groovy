@@ -12,6 +12,8 @@ class CalendrierController {
 
     def list() {
 		
+		println params
+		
 		flash.nom = params.nom
 		flash.lieu = params.lieu
 		flash.datemin = params.datemin
@@ -46,10 +48,10 @@ class CalendrierController {
 					ilike("lieu", '%' + flash.lieu + '%')
 				}
 				if(flash.datemin) {
-					gt("ep.date", new Date(flash.datemin))
+					gt("ep.date", Date.parse("dd/MM/yyyy", flash.datemin))
 				}
 				if(flash.datemax) {
-					lt("ep.date", new Date(flash.datemax))
+					lt("ep.date", Date.parse("dd/MM/yyyy", flash.datemax))
 				}
 			}
 			

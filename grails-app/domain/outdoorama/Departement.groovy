@@ -2,12 +2,12 @@ package outdoorama
 
 class Departement {
 
-	Integer	numero
+	String	code
 	String	nom
 	Region	region
 	
     static constraints = {
-		numero		range: 1..100
+		code		blank: false, size: 2..3, unique: true
 		nom			blank: false, size: 3..100, unique: true
     }
 }

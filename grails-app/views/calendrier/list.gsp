@@ -34,30 +34,72 @@
 		<div class="container-fluid" role="main">
 			<div class="row">
 				<div class="col-md-3" id="filtres">
-					<h2>Filtres</h2>
 					<g:form action="list" role="form">
-						<fieldset>
 							<div class="form-group">
 								<label for="nom"><g:message code="evenement.nom.label" default="Nom Evt." /></label>
 								<g:textField class="form-control" name="nom" value="${flash?.nom.encodeAsHTML()}" />
 							</div>
+							
 							<div class="form-group">
 								<label for="lieu"><g:message code="evenement.lieu.label" default="Lieu" /></label>
 								<g:textField class="form-control" name="lieu" value="${flash?.lieu.encodeAsHTML()}" />
 							</div>
 							
-							<label for="date"><g:message code="epreuve.date.label" default="Date" /></label>
-							<div class="input-daterange input-group" id="datepicker">
-								<g:textField class="input-sm form-control" name="datemin" value="${flash?.datemin.encodeAsHTML()}" />
-								<span class="input-group-addon">à</span>
-								<g:textField class="input-sm form-control" name="datemax" value="${flash?.datemax.encodeAsHTML()}" />
+							<label class="checkbox-inline">
+									<g:checkBox name="test" value="${flash?.equipe}" /> 
+									<g:message code="epreuve.equipe.label" default="Equipe" />
+							</label>
+							
+							<div class="form-group">
+								<label><g:message code="epreuve.date.label" default="Date" /></label>
+								<div class="input-daterange input-group datepicker" id="datepicker">
+									<g:textField class="form-control" name="datemin" value="${flash?.datemin.encodeAsHTML()}" />
+									<span class="input-group-addon">à</span>
+									<g:textField class="form-control" name="datemax" value="${flash?.datemax.encodeAsHTML()}" />
+								</div>
 							</div>
-						</fieldset>
+							
+							<div class="form-group">
+								<label>Options</label>
+								<div class="checkbox">
+									<label>
+										<g:checkBox name="courseFeminine" value="${flash?.courseFeminine}" /> 
+										<g:message code="epreuve.courseFeminine.label" default="Course Féminine" />
+									</label>
+								</div>
+								
+								<div class="checkbox">
+									<label>
+										<g:checkBox name="courseNocturne" value="${flash?.courseNocturne}" /> 
+										<g:message code="epreuve.courseFeminine.label" default="Course Nocturne" />
+									</label>
+								</div>
+								
+								<div class="checkbox">
+									<label>
+										<g:checkBox name="courseRecurrente" value="${flash?.courseRecurrente}" /> 
+										<g:message code="epreuve.courseFeminine.label" default="Course Récurrente" />
+									</label>
+								</div>
+
+								<label class="checkbox-inline">
+										<g:checkBox name="solo" value="${flash?.solo}" /> 
+										<g:message code="epreuve.solo.label" default="Solo" />
+								</label>
+								<label class="checkbox-inline">
+										<g:checkBox name="relais" value="${flash?.relais}" /> 
+										<g:message code="epreuve.relais.label" default="Relais" />
+								</label>
+								<label class="checkbox-inline">
+										<g:checkBox name="equipe" value="${flash?.equipe}" /> 
+										<g:message code="epreuve.equipe.label" default="Equipe" />
+								</label>
+							</div>
+							
 					</g:form>
 				</div>
 				
 				<div class="col-md-9">
-					<h2>Résultats</h2>
 					<div id="tableau" class="table-responsive">
 						<g:render template="tableau" model="model" />
 					</div>

@@ -48,7 +48,7 @@
 
     private renderStringEditor(domainClass, property) {
         if (!cp) {
-            return "<g:textField name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            return "<g:textField class=\"form-control\" name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
         } else {
 			def sb = new StringBuilder("")
             if ("textarea" == cp.widget || (cp.maxSize > 250 && !cp.password && !cp.inList)) {
@@ -70,11 +70,11 @@
 				if (cp.password) {
 					sb << '<g:field class="form-control" type="password"'
 				} else if (cp.url) {
-					sb << '<g:field type="url"'
+					sb << '<g:field class="form-control" type="url"'
 				} else if (cp.email) {
-					sb << '<g:field type="email"'
+					sb << '<g:field class="form-control" type="email"'
 				} else {
-					sb << '<g:textField'
+					sb << '<g:textField class="form-control"'
 				}
 				sb << ' name="' << property.name << '"'
 				if (cp.maxSize) sb << ' maxlength="' << cp.maxSize << '"'
@@ -103,7 +103,6 @@
  			sb << ' optionKey="id"'
 			if (isRequired()) sb << ' required=""'
  			sb << ' value="${' << "${domainInstance}?.${property.name}" << '?.id}"'
- 			sb << ' class="many-to-one"'
  			sb << renderNoSelection(property)
  			sb << '/>'
 			sb as String
@@ -127,7 +126,6 @@
             sb << ' size="5"'
             if (isRequired()) sb << ' required=""'
             sb << ' value="${' << "${domainInstance}?.${property.name}" << '*.id}"'
-            sb << ' class="many-to-many"'
             sb << '/>'
             sb as String
 
@@ -139,11 +137,11 @@
         def sw = new StringWriter()
         def pw = new PrintWriter(sw)
         pw.println()
-        pw.println '<ul class="one-to-many">'
+        pw.println '<ul>'
         pw.println "<g:each in=\"\${${domainInstance}?.${property.name}?}\" var=\"${property.name[0]}\">"
         pw.println "    <li><g:link controller=\"${property.referencedDomainClass.propertyName}\" action=\"show\" id=\"\${${property.name[0]}.id}\">\${${property.name[0]}?.encodeAsHTML()}</g:link></li>"
         pw.println '</g:each>'
-		pw.println '<li class="add">'
+		pw.println '<li>'
         pw.println "<g:link controller=\"${property.referencedDomainClass.propertyName}\" action=\"create\" params=\"['${domainClass.propertyName}.id': ${domainInstance}?.id]\">\${message(code: 'default.add.label', args: [message(code: '${property.referencedDomainClass.propertyName}.label', default: '${property.referencedDomainClass.shortName}')])}</g:link>"
 		pw.println '</li>'
         pw.println '</ul>'
@@ -195,7 +193,7 @@
 
     private renderBooleanEditor(domainClass, property) {
         if (!cp) {
-            return "<g:checkBox name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            return "<g:checkBox class=\"form-control\" name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
         } else {
             def sb = new StringBuilder("<g:checkBox name=\"${property.name}\" ")
             if (cp.widget) sb << "widget=\"${cp.widget}\" ";
@@ -210,12 +208,12 @@
     private renderDateEditor(domainClass, property) {
         def precision = (property.type == Date || property.type == java.sql.Date || property.type == Calendar) ? "day" : "minute";
         if (!cp) {
-            return "<g:datePicker class=\"form-control\" name=\"${property.name}\" precision=\"${precision}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            return "<g:textField class=\"form-control datepicker\" name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
         } else {
             if (!cp.editable) {
                 return "\${${domainInstance}?.${property.name}?.toString()}"
             } else {
-                def sb = new StringBuilder("<g:datePicker class=\"form-control\" name=\"${property.name}\" ")
+                def sb = new StringBuilder("<g:textField class=\"form-control datepicker\" name=\"${property.name}\" ")
                 if (cp.format) sb << "format=\"${cp.format}\" "
                 if (cp.widget) sb << "widget=\"${cp.widget}\" "
                 cp.attributes.each { k, v ->
@@ -224,7 +222,7 @@
                 if (!cp.attributes.precision) {
                     sb << "precision=\"${precision}\" "
                 }
-                sb << " value=\"\${${domainInstance}?.${property.name}}\" ${renderNoSelection(property)} />"
+                sb << " value=\"\${formatDate(format:'dd/MM/yyyy',date:${domainInstance}?.${property.name})}\" ${renderNoSelection(property)} />"
 
                 return sb.toString()
             }

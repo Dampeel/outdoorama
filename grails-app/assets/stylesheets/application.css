@@ -31,3 +31,99 @@ th.asc a {
 th.desc a {
 	background-image: url(../images/skin/sorted_desc.gif);
 }
+
+.page-content {
+	margin-top: 60px;
+}
+
+/* Affichage form */
+
+.form-row {
+	margin-top: 1em;
+}
+
+.form-label {
+	color: #666666;
+	text-align: left;
+}
+
+.form-value {
+	text-align: left;
+}
+
+/* Affichage show */
+
+.show-row {
+	margin-top: 1em;
+}
+
+.show-label {
+	color: #666666;
+	text-align: left;
+	margin-top: 1em;
+}
+
+.show-label {
+	color: #666666;
+	text-align: left;
+	margin-top: 1em;
+}
+
+.show-value {
+	text-align: left;
+	margin-top: 1em;
+}
+
+.h1-buttons {
+	line-height: 42px;
+	margin-bottom: 10.5px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 19px;
+	text-align: right;
+}
+
+/* Divers */
+
+label {
+	color: #666666;
+}
+
+value {
+}
+
+/* CREATE/EDIT FORMS AND SHOW PAGES
+
+.property-list {
+	margin: 0.6em 1.25em 0 1.25em;
+	padding: 0.3em 1.8em 1.25em;
+	position: relative;
+	zoom: 1;
+	border: none;
+}
+
+.property-list .fieldcontain {
+	list-style: none;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.fieldcontain {
+	margin-top: 1em;
+}
+
+.fieldcontain .property-label {
+	color: #666666;
+	text-align: right;
+	width: 25%;
+}
+
+.fieldcontain .property-label {
+	float: left;
+}
+
+.fieldcontain .property-value {
+	display: block;
+	margin-left: 27%;
+}
+*/
