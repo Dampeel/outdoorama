@@ -2,7 +2,7 @@ import outdoorama.*
 
 class BootStrap {
 
-    def init = { servletContext ->
+    /*def init = { servletContext ->
 		
 		def regionRA = new Region(code:"RA", nom: "Rhone-Alpes").save(failOnError: true)
 		def regionAuv = new Region(code: "AUV", nom: "Auvergne").save(failOnError: true)
@@ -89,7 +89,7 @@ class BootStrap {
 			.addToEpreuves(new Epreuve(date: Date.parse("dd/MM/yyyy", '01/09/2015'), famille: fam2, discipline: trail, tarifMin: 13, tarifMax: 32, solo: true, equipe: false, relais: false))
 			.save(failOnError: true)
 		
-    }
+    }*/
 	
     def destroy = {
     }
