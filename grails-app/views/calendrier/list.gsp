@@ -48,9 +48,23 @@
 							<div class="form-group">
 								<label><g:message code="epreuve.date.label" default="Date" /></label>
 								<div class="input-daterange input-group datepicker" id="datepicker">
-									<g:textField class="form-control" name="datemin" />
+									<g:textField class="form-control" name="dateMin" />
 									<span class="input-group-addon">à</span>
-									<g:textField class="form-control" name="datemax" />
+									<g:textField class="form-control" name="dateMax" />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="nom"><g:message code="evenement.departement.label" default="Departement" /></label>
+								<g:select class="form-control" name="departement" from="${outdoorama.Departement.list()}" optionKey="id" optionValue="code" noSelection="['': 'Tous les départements']"/>
+							</div>
+							
+							<div class="form-group">
+								<label><g:message code="epreuve.tarif.label" default="Tarif" /></label>
+								<div class="input-daterange input-group">
+									<g:textField class="form-control" name="tarifMin" />
+									<span class="input-group-addon">à</span>
+									<g:textField class="form-control" name="tarifMax" />
 								</div>
 							</div>
 							

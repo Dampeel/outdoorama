@@ -29,11 +29,24 @@ environments {
     }
 	production {
 		dataSource {
+			dbCreate = "update"
+			driverClassName = "org.postgresql.Driver"
+			dialect = org.hibernate.dialect.PostgreSQLDialect
+	
+			uri = new URI(System.env.DATABASE_URL?:"postgres://test:test@localhost/test")
+	
+			url = "jdbc:postgresql://"+uri.host+uri.path
+			username = uri.userInfo.split(":")[0]
+			password = uri.userInfo.split(":")[1]
+		}
+	}
+	/*production {
+		dataSource {
 			driverClassName = "com.mysql.jdbc.Driver"
             username = "root"
             password = "5cfdjwGycz"
             dbCreate = "create-drop" //TODO : change this !!!!
 			url = "jdbc:mysql://mysql-outdoorama.mpaas.io/outdoorama"
 		}
-	}
+	}*/
 }

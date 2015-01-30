@@ -14,17 +14,10 @@ class CalendrierController {
 		
 		println params
 		
-		/*flash.nom = params.nom
-		flash.lieu = params.lieu
-		flash.datemin = params.datemin
-		flash.datemax = params.datemax*/
-			
-        if (!params.sort) params.sort = "date"
-        if (!params.order) params.order = "desc"
-		
 		def calendrier = Evenement.createCriteria().list() {
 			
 			createAlias("epreuves", "ep")
+			createAlias("departement", "dpt")
 			
 			projections {
 				property("id", "id")
@@ -44,6 +37,8 @@ class CalendrierController {
 				property("ep.courseFeminine", "courseFeminine")
 				property("ep.courseRecurrente", "courseRecurrente")
 				property("ep.courseNocturne", "courseNocturne")
+				
+				property("dpt.id", "idDept")
 			}
 			
 			and {
@@ -53,8 +48,20 @@ class CalendrierController {
 				if(params.lieu) {
 					ilike("lieu", '%' + params.lieu + '%')
 				}
-				if(params.datemin) {
-					gte("ep.date", Date.parse("dd/MM/yyyy", params.datemin))
+				if(params.departement?.trim()) {
+					eq("dpt.id", params.departement.toLong())
+				}
+				if(params.dateMin) {
+					gte("ep.date", Date.parse("dd/MM/yyyy", params.dateMin))
+				}
+				if(params.dateMax) {
+					lte("ep.date", Date.parse("dd/MM/yyyy", params.dateMax))
+				}
+				if(params.tarifMin) {
+					gte("ep.tarifMin", params.tarifMin.toInteger())
+				}
+				if(params.tarifMax) {
+					lte("ep.tarifMin", params.tarifMax.toInteger())
 				}
 				if(params.datemax) {
 					lte("ep.date", Date.parse("dd/MM/yyyy", params.datemax))
@@ -79,6 +86,8 @@ class CalendrierController {
 				}
 			}
 			
+			if (!params.sort) params.sort = "date"
+			if (!params.order) params.order = "desc"
 			order(params.sort, params.order)
 			
 			resultTransformer(CriteriaSpecification.ALIAS_TO_ENTITY_MAP)
