@@ -4,11 +4,11 @@ class BootStrap {
 
     def init = { servletContext ->
 		
-		def regionRA = new Region(code:"RA", nom: "Rhône-Alpes").save(failOnError: true)
+		def regionRA = new Region(code:"RA", nom: "Rhone-Alpes").save(failOnError: true)
 		def regionAuv = new Region(code: "AUV", nom: "Auvergne").save(failOnError: true)
 		
 		def dept01 = new Departement(code: "01", nom: "Ain", region: regionRA).save(failOnError: true)
-		def dept69 = new Departement(code: "69", nom: "Rhône", region: regionRA).save(failOnError: true)
+		def dept69 = new Departement(code: "69", nom: "Rhone", region: regionRA).save(failOnError: true)
 		def dept38 = new Departement(code: "38", nom: "Isère", region: regionRA).save(failOnError: true)
 		def dept73 = new Departement(code: "73", nom: "Savoie", region: regionRA).save(failOnError: true)
 		def dept74 = new Departement(code: "74", nom: "Haute-Savoie", region: regionRA).save(failOnError: true)
