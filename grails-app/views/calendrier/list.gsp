@@ -33,43 +33,72 @@
 	
 		<div class="container-fluid" role="main">
 			<div class="row">
-				<div class="col-md-3" id="filtres">
-					<g:form action="list" role="form">
+				<div class="col-sm-3 fixed" id="filtres">
+					<g:form action="list" class="form-horizontal" role="form">
 							<div class="form-group">
-								<label for="nom"><g:message code="evenement.nom.label" default="Nom Evt." /></label>
-								<g:textField class="form-control" name="nom" />
-							</div>
-							
-							<div class="form-group">
-								<label for="lieu"><g:message code="evenement.lieu.label" default="Lieu" /></label>
-								<g:textField class="form-control" name="lieu" />
-							</div>
-							
-							<div class="form-group">
-								<label><g:message code="epreuve.date.label" default="Date" /></label>
-								<div class="input-daterange input-group datepicker" id="datepicker">
-									<g:textField class="form-control" name="dateMin" />
-									<span class="input-group-addon">à</span>
-									<g:textField class="form-control" name="dateMax" />
+								<label for="texte" class="col-sm-3 control-label"><g:message code="evenement.texte.label" default="Evt." /></label>
+								<div class="col-sm-9">
+									<g:textField class="form-control" name="texte" />
 								</div>
 							</div>
 							
 							<div class="form-group">
-								<label for="nom"><g:message code="evenement.departement.label" default="Departement" /></label>
-								<g:select class="form-control" name="departement" from="${outdoorama.Departement.list()}" optionKey="id" optionValue="code" noSelection="['': 'Tous les départements']"/>
-							</div>
-							
-							<div class="form-group">
-								<label><g:message code="epreuve.tarif.label" default="Tarif" /></label>
-								<div class="input-daterange input-group">
-									<g:textField class="form-control" name="tarifMin" />
-									<span class="input-group-addon">à</span>
-									<g:textField class="form-control" name="tarifMax" />
+								<label class="col-sm-3 control-label"><g:message code="epreuve.date.label" default="Date" /></label>
+								<div class="col-sm-9">
+									<div class="input-daterange input-group datepicker" id="datepicker">
+										<g:textField class="form-control" name="dateMin" />
+										<span class="input-group-addon">à</span>
+										<g:textField class="form-control" name="dateMax" />
+									</div>
 								</div>
 							</div>
 							
 							<div class="form-group">
-								<label>Options</label>
+								<label for="nom" class="col-sm-3 control-label"><g:message code="evenement.departement.label" default="Dept." /></label>
+								<div class="col-sm-9">
+									<g:select class="form-control" name="departement" from="${outdoorama.Departement.list()}" optionKey="id" optionValue="nom" noSelection="['': 'Tous les départements']"/>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="nom" class="col-sm-3 control-label"><g:message code="evenement.discipline.label" default="Disc." /></label>
+								<div class="col-sm-9">
+									<g:select class="form-control" name="discipline" from="${outdoorama.Discipline.list()}" optionKey="id" optionValue="id" noSelection="['': 'Toutes les disciplines']"/>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="nom" class="col-sm-3 control-label"><g:message code="evenement.famille.label" default="Fam." /></label>
+								<div class="col-sm-9">
+									<g:select class="form-control" name="famille" from="${outdoorama.Famille.list()}" optionKey="id" optionValue="id" noSelection="['': 'Toutes les familles']"/>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-3 control-label"><g:message code="epreuve.distance.label" default="Dist." /></label>
+								<div class="col-sm-9">
+									<div class="input-daterange input-group">
+										<g:textField class="form-control" name="distanceMin" />
+										<span class="input-group-addon">à</span>
+										<g:textField class="form-control" name="distanceMax" />
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-3 control-label"><g:message code="epreuve.denivele.label" default="Deniv." /></label>
+								<div class="col-sm-9">
+									<div class="input-daterange input-group">
+										<g:textField class="form-control" name="deniveleMin" />
+										<span class="input-group-addon">à</span>
+										<g:textField class="form-control" name="deniveleMax" />
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-3 control-label">...</label>
+								<div class="col-sm-9">
 								<div class="checkbox">
 									<label>
 										<g:checkBox name="courseFeminine" /> 
@@ -103,12 +132,20 @@
 										<g:checkBox name="equipe" /> 
 										<g:message code="epreuve.equipe.label" default="Equipe" />
 								</label>
+								
+								<div class="checkbox">
+									<label>
+										<g:checkBox name="pointsUTMB" /> 
+										<g:message code="epreuve.pointsUTMB.label" default="Points UTMB" />
+									</label>
+								</div>
+								</div>
 							</div>
 							
 					</g:form>
 				</div>
 				
-				<div class="col-md-9">
+				<div class="col-sm-9 scrollit">
 					<div id="tableau" class="table-responsive">
 						<g:render template="tableau" model="model" />
 					</div>

@@ -2,11 +2,16 @@ package outdoorama
 
 class Famille {
 
-	String	nom
+	String	id
 	String	description
 	
+	static mapping = {
+		id		generator: "assigned"
+		sort	"id"
+	 }
+	
 	static constraints = {
-		nom			blank: false, size: 3..50, unique: true
+		id			blank: false, size: 3..50, unique: true
 		description	blank: true, maxSize: 300
 	}
 }

@@ -36,6 +36,37 @@ th.desc a {
 	margin-top: 60px;
 }
 
+/* Affichage calendrier */
+
+.cal-titre {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.cal-titre a {
+}
+
+.cal-options {
+	font-size: .8em;
+}
+
+.cal-options-droite {
+	font-size: .8em;
+	float: right;
+}
+
+.table thead tr th {
+	padding-top: 0px;
+}
+
+/*.fixed {
+	position: fixed;
+}
+
+.scrollit {
+	float: right;
+}*/
+
 /* Affichage form */
 
 .form-row {
@@ -49,6 +80,10 @@ th.desc a {
 
 .form-value {
 	text-align: left;
+}
+
+.input-group {
+	width: 100%;
 }
 
 /* Affichage show */
@@ -91,39 +126,3 @@ label {
 
 value {
 }
-
-/* CREATE/EDIT FORMS AND SHOW PAGES
-
-.property-list {
-	margin: 0.6em 1.25em 0 1.25em;
-	padding: 0.3em 1.8em 1.25em;
-	position: relative;
-	zoom: 1;
-	border: none;
-}
-
-.property-list .fieldcontain {
-	list-style: none;
-	overflow: hidden;
-	zoom: 1;
-}
-
-.fieldcontain {
-	margin-top: 1em;
-}
-
-.fieldcontain .property-label {
-	color: #666666;
-	text-align: right;
-	width: 25%;
-}
-
-.fieldcontain .property-label {
-	float: left;
-}
-
-.fieldcontain .property-value {
-	display: block;
-	margin-left: 27%;
-}
-*/

@@ -2,7 +2,7 @@ package outdoorama
 
 class Evenement {
 	
-	String 	url						// équivalent id ?
+	String 	id						
 	String	nom						// cal + filtre
 	Integer	premium 	= 0			// 0 par défaut et 1 pour les étoiles
 	Integer	edition
@@ -21,9 +21,13 @@ class Evenement {
 	Departement	departement			// cal + filtre - plus région
 	
 	static hasMany = [epreuves: Epreuve]
+	
+	static mapping = {
+		id				generator: 'assigned'
+	}
 
     static constraints = {
-		url				blank: false, size: 3..100, unique: true
+		id				blank: false, size: 3..100, unique: true
 		nom				blank: false, size: 3..100
 		edition			nullable: true, min: 0
 		lieu			blank: false, size: 3..100

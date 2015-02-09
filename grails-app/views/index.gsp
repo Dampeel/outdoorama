@@ -21,7 +21,6 @@
 						<li><g:link controller="calendrier" action="list">Calendrier</g:link></li>
 						<li><g:link controller="evenement" action="index">Evenement</g:link></li>
 						<li><g:link controller="epreuve" action="index">Epreuve</g:link></li>
-						<li><g:link controller="distance" action="index">Distance</g:link></li>
 						<li><g:link controller="discipline" action="index">Discipline</g:link></li>
 						<li><g:link controller="horaire" action="index">Horaire</g:link></li>
 						<li><g:link controller="departement" action="index">Departement</g:link></li>

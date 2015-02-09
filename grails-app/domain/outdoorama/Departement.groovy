@@ -2,12 +2,17 @@ package outdoorama
 
 class Departement {
 
-	String	code
+	String	id
 	String	nom
 	Region	region
 	
+	static mapping = {
+		id		generator: "assigned"
+		sort	"nom"
+	 }
+	
     static constraints = {
-		code		blank: false, size: 2..3, unique: true
-		nom			blank: false, size: 3..100, unique: true
+		id		blank: false, size: 2..3, unique: true
+		nom		blank: false, size: 3..100, unique: true
     }
 }

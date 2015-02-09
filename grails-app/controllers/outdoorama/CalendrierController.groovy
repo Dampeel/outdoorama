@@ -26,30 +26,39 @@ class CalendrierController {
 				property("departement", "departement")
 				
 				property("ep.date", "date")
+				property("ep.tarifMin", "tarifMin")
+				property("ep.tarifMax", "tarifMax")
 				property("ep.discipline", "discipline")
 				property("ep.distance", "distance")
 				property("ep.denivele", "denivele")
-				property("ep.tarifMin", "tarifMin")
-				property("ep.tarifMax", "tarifMax")
-				property("ep.solo", "solo")
-				property("ep.relais", "relais")
-				property("ep.equipe", "equipe")
 				property("ep.courseFeminine", "courseFeminine")
 				property("ep.courseRecurrente", "courseRecurrente")
 				property("ep.courseNocturne", "courseNocturne")
+				property("ep.solo", "solo")
+				property("ep.relais", "relais")
+				property("ep.equipe", "equipe")
+				property("ep.pointsUTMB", "pointsUTMB")
+				property("ep.famille.id", "idFam")
+				property("ep.discipline.id", "idDisc")
 				
 				property("dpt.id", "idDept")
 			}
 			
 			and {
-				if(params.nom) {
-					ilike("nom", '%' + params.nom + '%')
+				or {
+					if(params.texte) {
+						ilike("nom", '%' + params.texte + '%')
+						ilike("lieu", '%' + params.texte + '%')
+					}
 				}
-				if(params.lieu) {
-					ilike("lieu", '%' + params.lieu + '%')
+				if(params.departement) {
+					eq("dpt.id", params.departement)
 				}
-				if(params.departement?.trim()) {
-					eq("dpt.id", params.departement.toLong())
+				if(params.famille) {
+					eq("ep.famille.id", params.famille)
+				}
+				if(params.discipline) {
+					eq("ep.discipline.id", params.discipline)
 				}
 				if(params.dateMin) {
 					gte("ep.date", Date.parse("dd/MM/yyyy", params.dateMin))
@@ -57,14 +66,17 @@ class CalendrierController {
 				if(params.dateMax) {
 					lte("ep.date", Date.parse("dd/MM/yyyy", params.dateMax))
 				}
-				if(params.tarifMin) {
-					gte("ep.tarifMin", params.tarifMin.toInteger())
+				if(params.distanceMin) {
+					gte("ep.distance", params.distanceMin.toBigDecimal())
 				}
-				if(params.tarifMax) {
-					lte("ep.tarifMin", params.tarifMax.toInteger())
+				if(params.distanceMax) {
+					lte("ep.distance", params.distanceMax.toBigDecimal())
 				}
-				if(params.datemax) {
-					lte("ep.date", Date.parse("dd/MM/yyyy", params.datemax))
+				if(params.deniveleMin) {
+					gte("ep.denivele", params.deniveleMin.toInteger())
+				}
+				if(params.deniveleMax) {
+					lte("ep.denivele", params.deniveleMax.toInteger())
 				}
 				if(params.courseFeminine) {
 					eq("ep.courseFeminine", true)
@@ -83,6 +95,9 @@ class CalendrierController {
 				}
 				if(params.equipe) {
 					eq("ep.equipe", true)
+				}
+				if(params.pointsUTMB) {
+					gt("ep.pointsUTMB", 0)
 				}
 			}
 			

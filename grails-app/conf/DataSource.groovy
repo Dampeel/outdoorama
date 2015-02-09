@@ -21,13 +21,22 @@ environments {
             url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
+	/*development {
+		dataSource {
+			driverClassName = "com.mysql.jdbc.Driver"
+            username = "root"
+            password = "5cfdjwGycz"
+            dbCreate = "create-drop" //TODO : change this !!!!
+			url = "jdbc:mysql://mysql-outdoorama.mpaas.io/outdoorama"
+		}
+	}*/
     test {
         dataSource {
             dbCreate = "update"
             url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
-	production {
+	/*production {
 		dataSource {
 			dbCreate = "update"
 			driverClassName = "org.postgresql.Driver"
@@ -39,8 +48,8 @@ environments {
 			username = uri.userInfo.split(":")[0]
 			password = uri.userInfo.split(":")[1]
 		}
-	}
-	/*production {
+	}*/
+	production {
 		dataSource {
 			driverClassName = "com.mysql.jdbc.Driver"
             username = "root"
@@ -48,5 +57,5 @@ environments {
             dbCreate = "create-drop" //TODO : change this !!!!
 			url = "jdbc:mysql://mysql-outdoorama.mpaas.io/outdoorama"
 		}
-	}*/
+	}
 }
