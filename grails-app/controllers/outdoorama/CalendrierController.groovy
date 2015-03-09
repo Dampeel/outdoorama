@@ -66,12 +66,6 @@ class CalendrierController {
 				if(params.dateMax) {
 					lte("ep.date", Date.parse("dd/MM/yyyy", params.dateMax))
 				}
-				if(params.distanceMin) {
-					gte("ep.distance", params.distanceMin.toBigDecimal())
-				}
-				if(params.distanceMax) {
-					lte("ep.distance", params.distanceMax.toBigDecimal())
-				}
 				if(params.deniveleMin) {
 					gte("ep.denivele", params.deniveleMin.toInteger())
 				}
@@ -102,8 +96,10 @@ class CalendrierController {
 			}
 			
 			if (!params.sort) params.sort = "date"
-			if (!params.order) params.order = "desc"
+			if (!params.order) params.order = "asc"
 			order(params.sort, params.order)
+			
+			maxResults(30)
 			
 			resultTransformer(CriteriaSpecification.ALIAS_TO_ENTITY_MAP)
 		}
@@ -116,8 +112,21 @@ class CalendrierController {
 		}
     }
 
-    def show(Evenement evenementInstance) {
-        respond evenementInstance
+    def show(Evenement evenement) {
+		
+		def dateMin
+		def dateMax
+		
+		evenement.epreuves.each { epreuve ->
+			if (!dateMin || epreuve.date < dateMin) {
+				dateMin = epreuve.date
+			}
+			if (!dateMax || epreuve.date > dateMax) {
+				dateMax = epreuve.date
+			}
+		}
+		
+        model: [evenementInstance: evenement, dateMin: dateMin, dateMax: dateMax]
     }
 }
 	

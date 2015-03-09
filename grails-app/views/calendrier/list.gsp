@@ -20,11 +20,11 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="${createLink(uri: '/')}">Outdoorama</a>
+					<a class="navbar-brand" href="${createLink(uri: '/')}">Yeti-Outdoor</a>
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="${createLink(uri: '/')}"><g:message code="default.home.label" /></a></li>
+						<li><a href="${createLink(uri: '/')}">Retour au site</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -71,17 +71,6 @@
 								<label for="nom" class="col-sm-3 control-label"><g:message code="evenement.famille.label" default="Fam." /></label>
 								<div class="col-sm-9">
 									<g:select class="form-control" name="famille" from="${outdoorama.Famille.list()}" optionKey="id" optionValue="id" noSelection="['': 'Toutes les familles']"/>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><g:message code="epreuve.distance.label" default="Dist." /></label>
-								<div class="col-sm-9">
-									<div class="input-daterange input-group">
-										<g:textField class="form-control" name="distanceMin" />
-										<span class="input-group-addon">à</span>
-										<g:textField class="form-control" name="distanceMax" />
-									</div>
 								</div>
 							</div>
 							

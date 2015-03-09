@@ -36,6 +36,21 @@ th.desc a {
 	margin-top: 60px;
 }
 
+/* Affichage fiche */
+
+p {
+	font-size: 1.2em;
+}
+
+blockquote {
+	font-size: 1.3em;
+	font-style: italic; 
+}
+
+.panel-title {
+	font-size: 1.4em;
+}
+
 /* Affichage calendrier */
 
 .cal-titre {

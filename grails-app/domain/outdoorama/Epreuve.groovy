@@ -6,7 +6,7 @@ class Epreuve {
 	
 	Date		date							// cal + filtre
 	String		nom
-	BigDecimal	distance						// cal + filtre
+	String		distance						// cal + filtre
 	Integer		denivele						// cal + filtre
 	
 	String		horaire
@@ -36,7 +36,7 @@ class Epreuve {
 
     static constraints = {
 		nom				blank: true, nullable: true, size: 3..100
-		distance		nullable: true, min: 0.0
+		distance		blank: true, nullable: true, size: 3..50
 		denivele		nullable: true
 		horaire			blank: true, nullable: true, maxSize: 100
 		infoRE			blank: true, nullable: true, maxSize: 200
@@ -52,4 +52,8 @@ class Epreuve {
 		commentaire		blank: true, nullable: true, maxSize: 1000
 		famille			nullable: true
     }
+	
+	static mapping = {
+		sort "nom"
+	}
 }

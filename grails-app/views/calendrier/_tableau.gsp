@@ -39,9 +39,9 @@
 				</span>
 				<br />
 				<span class="cal-options-droite">
-					<g:if test="${calendrierInstance.courseFeminine}">[féminine] </g:if>
-					<g:if test="${calendrierInstance.courseNocturne}">[nocturne] </g:if>
-					<g:if test="${calendrierInstance.courseRecurrente}">[récurrente] </g:if>
+					<g:if test="${calendrierInstance.courseFeminine}">[féminine]</g:if>
+					<g:if test="${calendrierInstance.courseNocturne}">[nocturne]</g:if>
+					<g:if test="${calendrierInstance.courseRecurrente}">[récurrente]</g:if>
 				</span>
 			</td>
 			
@@ -53,7 +53,7 @@
 		
 			<td>
 				${calendrierInstance.idFam}<br />
-				<g:if test="${calendrierInstance.distance}">${calendrierInstance.distance} km</g:if>
+				<g:if test="${calendrierInstance.distance}">${calendrierInstance.distance}</g:if>
 			</td>
 		
 			<td><g:if test="${calendrierInstance.denivele}">${calendrierInstance.denivele} m</g:if></td>

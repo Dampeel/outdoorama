@@ -26,7 +26,7 @@ environments {
 			driverClassName = "com.mysql.jdbc.Driver"
             username = "root"
             password = "5cfdjwGycz"
-            dbCreate = "create-drop" //TODO : change this !!!!
+            dbCreate = "update"
 			url = "jdbc:mysql://mysql-outdoorama.mpaas.io/outdoorama"
 		}
 	}*/
@@ -54,7 +54,7 @@ environments {
 			driverClassName = "com.mysql.jdbc.Driver"
             username = "root"
             password = "5cfdjwGycz"
-            dbCreate = "create-drop" //TODO : change this !!!!
+            dbCreate = "update"
 			url = "jdbc:mysql://mysql-outdoorama.mpaas.io/outdoorama"
 		}
 	}
