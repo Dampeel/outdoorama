@@ -70,7 +70,7 @@
 							<div class="form-group">
 								<label for="nom" class="col-sm-3 control-label"><g:message code="evenement.famille.label" default="Fam." /></label>
 								<div class="col-sm-9">
-									<g:select class="form-control" name="famille" from="${outdoorama.Famille.list()}" optionKey="id" optionValue="id" noSelection="['': 'Toutes les familles']"/>
+									<g:select class="form-control" name="famille" from="${outdoorama.Famille.list()}" optionKey="id" optionValue="description" noSelection="['': 'Toutes les familles']"/>
 								</div>
 							</div>
 							

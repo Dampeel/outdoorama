@@ -54,6 +54,6 @@ class Epreuve {
     }
 	
 	static mapping = {
-		sort "nom"
+		sort distance:"desc"
 	}
 }

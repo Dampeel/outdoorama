@@ -30,6 +30,15 @@ environments {
 			url = "jdbc:mysql://mysql-outdoorama.mpaas.io/outdoorama"
 		}
 	}*/
+	/*development {
+		dataSource {
+			driverClassName = "com.mysql.jdbc.Driver"
+            username = "kiwi2"
+            password = "dampeel21"
+            dbCreate = "create-drop"
+			url = "jdbc:mysql://cl1-sql11.phpnet.org:3306/kiwi2"
+		}
+	}*/
     test {
         dataSource {
             dbCreate = "update"

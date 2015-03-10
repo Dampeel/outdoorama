@@ -58,8 +58,14 @@
 		
 			<td><g:if test="${calendrierInstance.denivele}">${calendrierInstance.denivele} m</g:if></td>
 			
-			<td><g:formatNumber number="${calendrierInstance.tarifMin}" type="currency" currencyCode="EUR" /></br><g:formatNumber number="${calendrierInstance.tarifMax}" type="currency" currencyCode="EUR" /></td>
-			
+			<td>
+				<g:if test="${calendrierInstance.tarifMin}">
+					<g:formatNumber number="${calendrierInstance.tarifMin}" type="currency" currencyCode="EUR" /><br />
+				</g:if>
+				<g:if test="${calendrierInstance.tarifMax}">
+					<g:formatNumber number="${calendrierInstance.tarifMax}" type="currency" currencyCode="EUR" />
+				</g:if>
+			</td>
 		</tr>
 	</g:each>
 	</tbody>

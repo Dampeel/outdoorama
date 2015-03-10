@@ -12,6 +12,7 @@ class CalendrierController {
 
     def list() {
 		
+		println Famille.list()
 		println params
 		
 		def calendrier = Evenement.createCriteria().list() {

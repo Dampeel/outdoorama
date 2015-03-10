@@ -44,10 +44,10 @@ class BootStrap {
 			rando.id = "Rando"
 			rando.save(failOnError: true)
 			
-			def fam1 = new Famille(description: "Marathon")
+			def fam1 = new Famille(description: "Marathon (Marathon)")
 			fam1.id = "Marathon"
 			fam1.save(failOnError: true)
-			def fam2 = new Famille(description: "Famille 1")
+			def fam2 = new Famille(description: "Famille 1 (Famille 1)")
 			fam2.id = "Famille 1"
 			fam2.save(failOnError: true)
 			def fam3 = new Famille(description: "Famille 2")

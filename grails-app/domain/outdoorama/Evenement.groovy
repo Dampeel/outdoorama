@@ -24,6 +24,7 @@ class Evenement {
 	
 	static mapping = {
 		id				generator: 'assigned'
+		epreuves		sort: 'distance'
 	}
 
     static constraints = {

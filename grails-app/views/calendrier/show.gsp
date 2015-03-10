@@ -36,7 +36,7 @@
 					<h1><g:fieldValue bean="${evenementInstance}" field="nom"/></h1>
 	
 					<p>
-						<g:if test="${dateMin = dateMax}">
+						<g:if test="${dateMin == dateMax}">
 							Le <g:formatDate type="date" style="SHORT" date="${dateMin}" />
 						</g:if>
 						<g:else>
@@ -90,7 +90,7 @@
 							<a href="${evenementInstance?.urlFacebook}">[Facebook]</a>
 						</g:if>
 						<g:if test="${evenementInstance?.eMail}">
-							<a href="${evenementInstance?.eMail}">[E-mail]</a>
+							<a href="mailto:${evenementInstance?.eMail}">[E-mail]</a>
 						</g:if>
 					</p>
 				
@@ -126,18 +126,18 @@
 									</p>
 										
 									<p>
-										Départ : 
+										Départ 
 										<g:if test="${epreuveInstance?.date}">
-											<g:formatDate type="date" style="SHORT" date="${epreuveInstance.date}" />
+											le <g:formatDate type="date" style="SHORT" date="${epreuveInstance.date}" />
 										</g:if>
 										<g:if test="${epreuveInstance?.horaire}">
-											- ${epreuveInstance?.horaire}
+											(${epreuveInstance?.horaire})
 										</g:if>
 										<g:if test="${epreuveInstance?.lieuDepart}">
-											- ${epreuveInstance?.lieuDepart}
+											de ${epreuveInstance?.lieuDepart}
 										</g:if>
 										<g:if test="${epreuveInstance?.lieuArrivee}">
-											- Arrivée : ${epreuveInstance?.lieuArrivee}
+											- Arrivée à ${epreuveInstance?.lieuArrivee}
 										</g:if>
 										<g:if test="${epreuveInstance?.tempsLimite}">
 											// Temps limite : ${epreuveInstance?.tempsLimite}
@@ -181,7 +181,7 @@
 									<g:if test="${epreuveInstance?.tarifMin || epreuveInstance?.pointsUTMB}">	
 										<p>
 											<g:if test="${epreuveInstance?.tarifMin}">
-												Tarifs : ${epreuveInstance?.tarifMin} €
+												Tarifs : de ${epreuveInstance?.tarifMin} €
 											</g:if> 
 											<g:if test="${epreuveInstance?.tarifMax}">
 												à ${epreuveInstance?.tarifMax} €
